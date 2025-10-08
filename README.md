@@ -1,4 +1,4 @@
-# Social Spots 🌍
+# Social Spots
 
 A small web application to help people discover social, community-driven spots in the city.  
 Users can explore spots like community gardens, running clubs, culture houses, community dinners, and more — all curated in a map and list.
