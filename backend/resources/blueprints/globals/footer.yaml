@@ -1,0 +1,25 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: pages
+            field:
+              type: replicator
+              display: 'Links to Pages'
+              sets:
+                pages:
+                  display: Pages
+                  sets:
+                    page:
+                      display: Page
+                      fields:
+                        -
+                          handle: page
+                          field:
+                            collections:
+                              - pages
+                            type: link
+                            display: Page

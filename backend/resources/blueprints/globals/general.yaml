@@ -1,0 +1,28 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Logo
+          -
+            handle: disclaimer
+            field:
+              type: text
+              display: Disclaimer
+          -
+            handle: contact
+            field:
+              type: text
+              display: 'Contact (E-mail)'
+          -
+            handle: instagram
+            field:
+              type: link
+              display: Instagram

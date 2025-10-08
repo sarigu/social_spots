@@ -1,0 +1,161 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+  content:
+    display: Content
+    sections:
+      -
+        display: Content
+        fields:
+          -
+            handle: page_builder
+            field:
+              type: replicator
+              display: 'Page Builder'
+              sets:
+                components:
+                  display: Components
+                  sets:
+                    image_and_text:
+                      display: 'Image and Text'
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            max_files: 1
+                            container: assets
+                            type: assets
+                            display: Image
+                            validate:
+                              - required
+                        -
+                          handle: headline
+                          field:
+                            type: text
+                            display: Headline
+                            validate:
+                              - required
+                        -
+                          handle: description
+                          field:
+                            type: textarea
+                            display: Description
+                        -
+                          handle: text_on_the_right
+                          field:
+                            default: true
+                            type: toggle
+                            display: 'Text on the right'
+                    embed:
+                      display: Embed
+                      fields:
+                        -
+                          handle: headline
+                          field:
+                            type: text
+                            display: Headline
+                        -
+                          handle: code_snippet
+                          field:
+                            type: code
+                            display: 'Code Snippet'
+                            validate:
+                              - required
+                    highlight:
+                      display: Highlight
+                      fields:
+                        -
+                          handle: text
+                          field:
+                            type: textarea
+                            display: Text
+                            validate:
+                              - required
+                    headline_and_text:
+                      display: 'Headline and Text'
+                      fields:
+                        -
+                          handle: headline
+                          field:
+                            type: text
+                            display: Headline
+                            validate:
+                              - required
+                        -
+                          handle: text
+                          field:
+                            type: textarea
+                            display: Text
+                            validate:
+                              - required
+                        -
+                          handle: text_on_the_right
+                          field:
+                            default: true
+                            type: toggle
+                            display: 'Text on the right'
+                    hero:
+                      display: Hero
+                      instructions: 'Only for home'
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            max_files: 1
+                            container: assets
+                            type: assets
+                            display: Image
+                            validate:
+                              - required
+                        -
+                          handle: headline
+                          field:
+                            type: text
+                            display: Headline
+                            validate:
+                              - required
+                    map:
+                      display: Map
+                      instructions: 'This will display a map of spots and a list'
+                      fields:
+                        -
+                          handle: headline
+                          field:
+                            type: text
+                            display: Headline
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true
