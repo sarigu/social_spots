@@ -1,0 +1,137 @@
+title: 'Social Spot'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: type
+            field:
+              options:
+                -
+                  key: food
+                  value: Food
+                -
+                  key: sports
+                  value: Sports
+                -
+                  key: gardening
+                  value: Gardening
+                -
+                  key: volunteering
+                  value: Volunteering
+                -
+                  key: culture_house
+                  value: 'Culture House'
+                -
+                  key: games
+                  value: Games
+              type: checkboxes
+              display: Type
+              validate:
+                - required
+          -
+            handle: street
+            field:
+              type: text
+              display: Street
+              width: 50
+          -
+            handle: street_number
+            field:
+              type: integer
+              display: 'Street Number'
+              width: 50
+          -
+            handle: postal_code
+            field:
+              type: integer
+              display: 'Postal Code'
+              width: 50
+          -
+            handle: city
+            field:
+              options:
+                -
+                  key: copenhagen
+                  value: Copenhagen
+              default: copenhagen
+              type: radio
+              display: City
+              width: 50
+          -
+            handle: country
+            field:
+              options:
+                -
+                  key: denmark
+                  value: Denmark
+              default: denmark
+              type: radio
+              display: Country
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+              validate:
+                - required
+          -
+            handle: time_details
+            field:
+              type: text
+              display: When
+          -
+            handle: cost
+            field:
+              type: text
+              display: Cost
+          -
+            handle: language
+            field:
+              options:
+                -
+                  key: danish
+                  value: Danish
+                -
+                  key: english
+                  value: English
+                -
+                  key: other
+                  value: Other
+              type: checkboxes
+              display: Language
+          -
+            handle: website
+            field:
+              type: link
+              display: Website
+          -
+            handle: instagram
+            field:
+              type: link
+              display: Instagram
+          -
+            handle: facebook
+            field:
+              type: link
+              display: Facebook
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
