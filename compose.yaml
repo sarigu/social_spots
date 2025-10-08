@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend/vendor/laravel/sail/runtimes/8.2
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: 1000
+        WWWUSER: 1000
+    image: social-spots-backend
+    container_name: social-spots-backend
+    ports:
+      - "80:80"
+    environment:
+      - WWWGROUP=1000
+      - WWWUSER=1000
+      - APP_SERVICE=backend
+      - APP_URL=http://localhost
+      - STATAMIC_API_ENABLED=true
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - social-spots-network
+
+networks:
+  social-spots-network:
