@@ -1,1 +1,4 @@
 title: General
+data:
+  logo: logo.png
+  disclaimer: 'This is an ongoing project. Feedback is appreciated.'

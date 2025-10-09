@@ -1,1 +1,23 @@
 title: Footer
+data:
+  pages:
+    -
+      id: mginkg5f
+      page: 'entry::home'
+      type: page
+      enabled: true
+    -
+      id: mginklb4
+      page: 'entry::82040fd5-794c-4713-aba3-7f29f9dd5690'
+      type: page
+      enabled: true
+    -
+      id: mginkp1t
+      page: 'entry::531811bc-bdd9-460c-9ba4-bacb487ded4a'
+      type: page
+      enabled: true
+    -
+      id: mginksx5
+      page: 'entry::5b04b88d-2dfb-4e2b-87f3-f2cc1bb00f2f'
+      type: page
+      enabled: true
