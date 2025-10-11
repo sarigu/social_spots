@@ -17,5 +17,7 @@ language:
 instagram: 'https://www.instagram.com/groedsocialrunners/'
 facebook: 'https://www.facebook.com/groups/701592215310423'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759938676
+updated_at: 1760224945
+latitude: 55.6841
+longitude: 12.5544
 ---

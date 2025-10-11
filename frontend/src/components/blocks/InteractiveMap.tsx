@@ -1,16 +1,18 @@
+// components/blocks/Map.tsx
 import Container from "@/components/base/Container";
 import SocialSpotsAccordion from "@/components/blocks/SocialSpotsAccordion";
+import SpotsMap from "@/components/blocks/SpotsMap";
 import { getAllSocialSpots } from "@/lib/spots.repository";
 
-interface MapProps {
+interface InteractiveMapProps {
   headline?: string;
 }
 
-export default async function Map({ headline }: MapProps) {
+export default async function InteractiveMap({ headline }: InteractiveMapProps) {
   const spots = await getAllSocialSpots();
 
   if(!spots || spots.length === 0) {
-    return;
+    return null;
   }
 
   return (
@@ -18,7 +20,9 @@ export default async function Map({ headline }: MapProps) {
       {headline && (
         <h3 className="text-2xl font-heading mb-4 text-foreground">{headline}</h3>
       )}
-      <div className="relative w-full h-auto min-h-[500px] rounded-3xl overflow-hidden bg-muted mb-8" />
+      
+      {/* Interactive Map */}
+      <SpotsMap spots={spots} />
       
       {/* Social Spots Accordion */}
       <SocialSpotsAccordion spots={spots} />

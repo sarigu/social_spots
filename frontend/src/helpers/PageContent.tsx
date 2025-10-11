@@ -2,7 +2,7 @@ import Hero from "@/components/blocks/Hero";
 import Highlight from "@/components/blocks/Highlight";
 import HeadlineText from "@/components/blocks/HeadlineText";
 import ImageText from "@/components/blocks/ImageText";
-import Map from "@/components/blocks/Map";
+import InteractiveMap from "@/components/blocks/InteractiveMap";
 import Embed from "@/components/blocks/Embed";
 
 interface PageContentProps {
@@ -31,7 +31,7 @@ export default function PageContent({ blocks }: PageContentProps) {
             return <Highlight key={block.id} text={block.text}/>;
 
           case "map":
-            return <Map key={block.id} headline={block.headline} />;
+            return <InteractiveMap key={block.id} headline={block.headline} />;
 
           default:
             return (

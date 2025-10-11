@@ -20,5 +20,7 @@ website: 'https://broensstreetfood.dk/en/events'
 instagram: 'https://www.instagram.com/broensstreetfood/'
 facebook: 'https://www.facebook.com/broensstreetfood'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759968756
+updated_at: 1760224886
+latitude: 55.6775
+longitude: 12.5951
 ---

@@ -14,5 +14,7 @@ time_details: 'Varies by event'
 cost: 'Varies by event'
 website: 'https://kulturhusetislandsbrygge.kk.dk/'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759938852
+updated_at: 1760225006
+latitude: 55.6655
+longitude: 12.577
 ---

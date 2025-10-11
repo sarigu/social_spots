@@ -21,5 +21,7 @@ language:
   - english
 website: 'https://www.oenshave.dk/volunteer'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759939028
+updated_at: 1760225026
+latitude: 55.7023
+longitude: 12.605
 ---

@@ -2,18 +2,19 @@
 
 import { useState } from 'react';
 import { SocialSpot, SpotTypeValue, getNeighborhoodFromPostalCode } from '@/lib/spots.repository';
+import Link from "next/link";
+import Image from "next/image";
 
 interface SocialSpotsAccordionProps {
   spots: SocialSpot[];
 }
 
-// Type configuration with colors and emojis
 const typeConfig: Record<SpotTypeValue, { color: string; emoji: string }> = {
-  food: { color: 'bg-yellow-100', emoji: '🍜' },
+  food: { color: 'bg-yellow-300', emoji: '🍜' },
   sports: { color: 'bg-blue-400', emoji: '⚽' },
-  gardening: { color: 'bg-green-100', emoji: '🌱' },
+  gardening: { color: 'bg-green-200', emoji: '🌱' },
   volunteering: { color: 'bg-purple-400', emoji: '🤝' },
-  culture_house: { color: 'bg-red-100', emoji: '🏠' },
+  culture_house: { color: 'bg-red-300', emoji: '🏠' },
   games: { color: 'bg-pink-400', emoji: '🎮' },
   creativity: { color: 'bg-orange-400', emoji: '🎨' },
 };
@@ -25,9 +26,9 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Safety check
+
   if (!spots || !Array.isArray(spots)) {
-    return <div>No spots available</div>;
+    return <div>No social spots available</div>;
   }
 
   return (
@@ -36,7 +37,6 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
         const isOpen = openIndex === index;
         const neighborhood = getNeighborhoodFromPostalCode(spot.postal_code);
         
-        // Ensure type is an array
         const types = Array.isArray(spot.type) ? spot.type : [];
 
         return (
@@ -49,24 +49,24 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
               onClick={() => toggleAccordion(index)}
               className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
             >
-                <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+                <div className="grid grid-cols-[auto_1fr] gap-10 items-center">
                     <div className="flex gap-1 w-24">
                         {types.map((type, index) => {
-                        const value = typeof type === 'object' ? type.value : type;
-                        const label = typeof type === 'object' ? type.label : type;
-                        const config = typeConfig[value as SpotTypeValue];
-                        
-                        if (!config) return null;
-                        
-                        return (
-                            <div
-                            key={index}
-                            className={`w-8 h-8 ${config.color} rounded-full flex items-center justify-center text-md`}
-                            title={label}
-                            >
-                            {config.emoji}
-                            </div>
-                        );
+                            const value = typeof type === 'object' ? type.value : type;
+                            const label = typeof type === 'object' ? type.label : type;
+                            const config = typeConfig[value as SpotTypeValue];
+                            
+                            if (!config) return null;
+                            
+                            return (
+                                <div
+                                    key={index}
+                                    className={`w-8 h-8 ${config.color} rounded-full flex items-center justify-center text-md`}
+                                    title={label}
+                                >
+                                    {config.emoji}
+                                </div>
+                            );
                         })}
                     </div>
 
@@ -158,36 +158,36 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
                   {(spot.website || spot.instagram || spot.facebook) && (
                     <div>
                       <dt className="text-sm font-bold text-gray-700 mb-1">Links</dt>
-                      <dd className="flex flex-col gap-2">
+                      <dd className="flex flex-row gap-3 mt-2">
                         {spot.website && (
-                          <a
-                            href={spot.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-sm hover:underline"
-                          >
-                            Website: {spot.website}
-                          </a>
+                            <Link href={spot.website} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                                <Image 
+                                    src="/icons/website.svg" 
+                                    alt="Website" 
+                                    width={20} 
+                                    height={20} 
+                                />
+                            </Link>
                         )}
                         {spot.instagram && (
-                          <a
-                            href={spot.instagram}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-sm hover:underline"
-                          >
-                            Instagram: {spot.instagram}
-                          </a>
+                            <Link href={spot.instagram} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                                <Image 
+                                    src="/icons/instagram.svg" 
+                                    alt="Instagram" 
+                                    width={20} 
+                                    height={20} 
+                                />
+                            </Link>
                         )}
                         {spot.facebook && (
-                          <a
-                            href={spot.facebook}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-sm hover:underline"
-                          >
-                            Facebook: {spot.facebook}
-                          </a>
+                            <Link href={spot.facebook} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                                <Image 
+                                    src="/icons/facebook.svg" 
+                                    alt="Facebook" 
+                                    width={20} 
+                                    height={20} 
+                                />
+                            </Link>
                         )}
                       </dd>
                     </div>

@@ -18,5 +18,7 @@ language:
 website: 'https://clashcph.com/'
 instagram: 'https://www.instagram.com/clashcph'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759938911
+updated_at: 1760224902
+latitude: 55.6931
+longitude: 12.5512
 ---

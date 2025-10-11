@@ -81,6 +81,18 @@ tabs:
               type: radio
               display: Country
           -
+            handle: latitude
+            field:
+              type: float
+              display: Latitude
+              width: 50
+          -
+            handle: longitude
+            field:
+              type: float
+              display: Longitude
+              width: 50
+          -
             handle: description
             field:
               type: textarea

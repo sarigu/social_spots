@@ -17,8 +17,10 @@ website: 'https://onebowl.dk/'
 instagram: 'https://www.instagram.com/onebowl.cph/'
 facebook: 'https://www.facebook.com/1bowl'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759938537
+updated_at: 1760225042
 street_number: 2
 city: copenhagen
 country: denmark
+latitude: 55.6645
+longitude: 12.5299
 ---

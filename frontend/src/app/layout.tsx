@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import 'leaflet/dist/leaflet.css';
 import {loadGlobalSet} from "@/lib/global.repository";
 import {loadNavigation} from "@/lib/nav.repository";
 import Footer from "@/components/base/Footer";

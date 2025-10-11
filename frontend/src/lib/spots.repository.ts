@@ -26,6 +26,8 @@ export interface SocialSpot {
   street?: string;
   street_number?: number; 
   postal_code?: number; 
+  latitude?: number;
+  longitude?: number;
 }
 
 const STATAMIC_SPOTS_URL = `${process.env.API_URL}/collections/social_spots/entries`;

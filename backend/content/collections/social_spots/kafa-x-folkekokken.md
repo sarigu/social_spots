@@ -18,5 +18,7 @@ language:
   - english
 facebook: 'https://www.facebook.com/groups/174659825958018/'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1759938551
+updated_at: 1760224979
+latitude: 55.6858
+longitude: 12.5535
 ---
