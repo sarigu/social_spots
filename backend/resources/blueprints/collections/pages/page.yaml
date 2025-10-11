@@ -52,10 +52,10 @@ tabs:
                             validate:
                               - required
                         -
-                          handle: description
+                          handle: text
                           field:
                             type: textarea
-                            display: Description
+                            display: Text
                         -
                           handle: text_on_the_right
                           field:

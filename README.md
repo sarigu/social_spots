@@ -9,7 +9,6 @@ The project uses:
 - **Mapping:** [Leaflet](https://leafletjs.com/)  
 - **Development environment:** Docker (Laravel Sail runtime)  
 
----
 
 ## Run the backend
 
@@ -23,7 +22,6 @@ The project uses:
 
 3. **Your Control Panel will be accessible at: http://localhost/cp**
 
----
 
 ## Run the frontend
 
