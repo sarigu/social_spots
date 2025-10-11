@@ -9,7 +9,7 @@ interface NavbarProps {
 
 export default function Navbar({navLinks, generalSettings}: NavbarProps) {
     return (
-        <nav className="pt-10">
+        <nav className="pt-10 px-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 w-full max-w-7xl mx-auto">
                 {generalSettings.logo && (
                     <Link href="/" className="block">

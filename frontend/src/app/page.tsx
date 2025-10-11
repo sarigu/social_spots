@@ -1,10 +1,15 @@
-import { getPage } from "@/lib/api";
-import PageBuilder from "@/helpers/PageBuilder";
+import { notFound } from 'next/navigation';
+import PageContent from '@/helpers/PageContent';
+import { getHomepage } from '@/lib/api';
 
-export default async function Page() {
-  const page = await getPage("home");
+export default async function Homepage() {
+  const page = await getHomepage();
+  
+  if (!page) {
+    notFound();
+  }
 
   return (
-    <PageBuilder blocks={page.page_builder} />
+    <PageContent blocks={page.page_builder} />
   );
 }

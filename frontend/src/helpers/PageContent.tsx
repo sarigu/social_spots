@@ -5,7 +5,12 @@ import ImageText from "@/components/blocks/ImageText";
 import Map from "@/components/blocks/Map";
 import Embed from "@/components/blocks/Embed";
 
-export default function PageBuilder({ blocks }: { blocks: any[] }) {
+interface PageContentProps {
+  blocks: any[]
+}
+
+
+export default function PageContent({ blocks }: PageContentProps) {
   return (
     <div className="space-y-8">
       {blocks.map((block: any) => {

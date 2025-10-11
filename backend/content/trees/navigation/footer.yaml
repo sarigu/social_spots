@@ -3,11 +3,11 @@ tree:
     id: 778b7b7d-fa81-44d8-8327-e1c15354b83d
     entry: home
   -
-    id: f714dbb8-5b1a-4852-8cc8-0e0f0ccf1cca
-    entry: 531811bc-bdd9-460c-9ba4-bacb487ded4a
+    id: 31e37a53-f5ad-4eee-bfb7-5f706503f106
+    entry: about
   -
-    id: ea71cf1c-008f-40c9-99f8-16dc011b1143
-    entry: 82040fd5-794c-4713-aba3-7f29f9dd5690
+    id: 609dbfa7-3bf6-4368-81e0-c5bfc616af12
+    entry: add-spot
   -
-    id: eb73776f-6ee6-4e1a-9e36-5773ef8b91d8
-    entry: 5b04b88d-2dfb-4e2b-87f3-f2cc1bb00f2f
+    id: e7f3ad19-31f6-4cfc-b25a-e013169a63f1
+    entry: contact

@@ -1,15 +1,28 @@
-export async function getPages() {
-  const res = await fetch(`${process.env.API_URL}/collections/pages/entries`);
-  if (!res.ok) throw new Error("Failed to fetch pages");
-  const data = await res.json();
+const STATAMIC_API_URL = `${process.env.API_URL}/collections/pages/entries`;
+
+export async function getAllPages() {
+  const response = await fetch(STATAMIC_API_URL, {
+    next: { revalidate: 60 }
+  });
+  const data = await response.json();
   return data.data;
 }
 
-export async function getPage(slug: string) {
-  const res = await fetch(`${process.env.API_URL}/collections/pages/entries/${slug}`);
-  if (!res.ok) throw new Error("Page not found");
-  const data = await res.json();
-  return data.data;
+export async function getPageBySlug(slugArray) {
+  const slug = slugArray.join('/');
+  const pages = await getAllPages();
+  return pages.find(page => page.slug === slug);
+}
+
+export async function getHomepage() {
+  const pages = await getAllPages();
+  return pages.find(page => page.slug === '' || page.slug === '/' || page.slug === 'home');
+}
+
+export function generateSlugParams(pages) {
+  return pages.map((page) => ({
+    slug: page.slug.split('/').filter(Boolean),
+  }));
 }
 
 const generateDefaultRequestOptions = (options?: any) => {

@@ -150,6 +150,7 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+              display: Slug
           -
             handle: parent
             field:
