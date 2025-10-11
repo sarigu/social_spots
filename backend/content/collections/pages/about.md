@@ -4,7 +4,7 @@ blueprint: page
 title: About
 author: 3373b19c-b44c-49b4-b77f-8ac350a3b782
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1760142126
+updated_at: 1760192333
 page_builder:
   -
     id: mginivvz
