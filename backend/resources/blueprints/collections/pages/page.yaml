@@ -131,7 +131,7 @@ tabs:
                             validate:
                               - required
                     map:
-                      display: Map
+                      display: 'Interactive Map'
                       instructions: 'This will display a map of spots and a list'
                       fields:
                         -

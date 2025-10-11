@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import PageRenderer from '@/helpers/PageRenderer';
-import { getAllPages, getPageBySlug, generateSlugParams } from '@/lib/api';
+import { getAllPages, getPageBySlug, generateSlugParams } from '@/lib/pages.repository';
 
 export async function generateStaticParams() {
   const pages = await getAllPages();

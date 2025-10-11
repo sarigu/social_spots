@@ -1,4 +1,4 @@
-import {fetchEntry} from "@/lib/api";
+import {fetchEntry} from "@/lib/pages.repository";
 
 export async function loadNavigation(handle: string){
   const url = new URL(`${process.env.API_URL}/navs/${handle}/tree`);
