@@ -66,12 +66,17 @@ export type BlockMap = BlockBase & {
   headline?: string;
 };
 
+interface CodeSnippet{
+  code: string;
+  mode: string;
+  value: string;
+}
+
 export type BlockEmbed = BlockBase & {
   type: 'map';
   headline?: string;
-  embed: string;
+  code_snippet: CodeSnippet;
 };
-
 
 export type Block =
   BlockHero |

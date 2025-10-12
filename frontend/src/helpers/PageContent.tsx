@@ -25,7 +25,7 @@ export default function PageContent({ blocks }: PageContentProps) {
             return <ImageText key={block.id} headline={block.headline} text={block.text} image={block.image} text_on_the_right={block.text_on_the_right}/>;
 
           case "embed":
-            return <Embed key={block.id} headline={block.headline} embed={block.embed}/>;
+            return <Embed key={block.id} props={block.headline} code_snippet={block.code_snippet}/>;
 
           case "highlight":
             return <Highlight key={block.id} text={block.text}/>;
