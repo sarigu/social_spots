@@ -1,7 +1,6 @@
-// components/blocks/Map.tsx
 import Container from "@/components/base/Container";
-import SocialSpotsAccordion from "@/components/blocks/SocialSpotsAccordion";
-import SpotsMap from "@/components/blocks/SpotsMap";
+import SocialSpotsAccordion from "@/components/map/SocialSpotsAccordion";
+import SpotsMap from "@/components/map/SpotsMap";
 import { getAllSocialSpots } from "@/lib/spots.repository";
 
 interface InteractiveMapProps {
@@ -17,9 +16,7 @@ export default async function InteractiveMap({ headline }: InteractiveMapProps) 
 
   return (
     <Container>
-      {headline && (
-        <h3 className="text-2xl font-heading mb-4 text-foreground">{headline}</h3>
-      )}
+      {headline && (<h3 className="text-2xl font-heading mb-4 text-foreground">{headline}</h3>)}
       
       {/* Interactive Map */}
       <SpotsMap spots={spots} />

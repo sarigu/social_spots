@@ -23,11 +23,8 @@ export const metadata: Metadata = {
   description: "Discover and Share the Best Social Spots Around You",
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+
   const generalSettings = await loadGlobalSet('general');
   const navLinks = await loadNavigation('main_nav');
   const footerLinks = await loadNavigation('footer');
@@ -38,7 +35,9 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {generalSettings.disclaimer && (
-          <Disclaimer text={generalSettings.disclaimer} />
+          <Disclaimer 
+            text={generalSettings.disclaimer} 
+          />
         )}
         <Navbar 
           navLinks={navLinks} 

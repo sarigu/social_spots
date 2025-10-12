@@ -1,0 +1,104 @@
+export interface Image {
+  id?: string;
+  alt?: string;
+  permalink?: string;
+  url?: string;
+  api_url?: string;
+}
+
+export interface GeneralSettings {
+  contact?: string;
+  instagram? : string;
+  disclaimer?: string;
+  logo?: Image;
+}
+
+interface Blueprint{
+    handle: string;
+    title: string;
+}
+
+interface Collection{
+    handle: string;
+    title: string;
+}
+
+interface Author{
+    api_url: string;
+    email: string;
+    id: string;
+    name: string;
+}
+
+export interface Page{
+    api_url: string;
+    author: string;
+    blueprint: Blueprint;
+    collection: Collection;
+    date?: string;
+    description?: string;
+    edit_url: string;
+    entry_id?: string;
+    id: string;
+    is_entry: boolean;
+    last_modified: string;
+    locale: string;
+    mount: any;
+    order: number
+    origin_id: string
+    page_builder: any[];
+    permalink: string;
+    private: boolean;
+    published: boolean;
+    slug: string;
+    status: string;
+    title: string;
+    updated_at: string;
+    uri: string;
+    url: string;
+    updated_by: Author;
+}
+
+export interface NavLinks {
+  children?: React.ReactNode;
+  depth: number;
+  page: Page;
+}
+
+export interface FooterLinks {
+  children?: React.ReactNode;
+  depth: number;
+  page: Page;
+}
+
+export type SpotTypeValue = 'food' | 'sports' | 'gardening' | 'volunteering' | 'culture_house' | 'games' | 'creativity';
+
+export interface SpotType {
+  key: string;
+  value: SpotTypeValue;
+  label: string;
+}
+
+export interface LanguageType {
+  key: string;
+  value: string;
+  label: string;
+}
+
+export interface SocialSpot {
+  id: string;
+  title: string;
+  type: SpotType[];
+  description?: string;
+  time_details?: string; 
+  cost?: string;
+  language?: LanguageType[]; 
+  website?: string;
+  instagram?: string;
+  facebook?: string;
+  street?: string;
+  street_number?: number; 
+  postal_code?: number; 
+  latitude?: number;
+  longitude?: number;
+}

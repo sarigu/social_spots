@@ -1,8 +1,9 @@
 import PageContent from "@/helpers/PageContent";
 import Container from "@/components/base/Container";
+import {Page as TPage} from "@/types";
 
 interface PageRendererProps {
-  page: any;
+  page: TPage;
 }
 
 export default function PageRenderer({ page }: PageRendererProps) {

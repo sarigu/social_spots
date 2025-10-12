@@ -2,15 +2,16 @@
 
 import Container from "@/components/base/Container";
 import Image from "next/image";
+import {Image as TImage} from "@/types";
 
 interface ImageTextProps {
   headline?: string;
   text: string;
-  image: string;
+  image: TImage;
   text_on_the_right?: boolean;
 }
 
-export default function ImageText({headline, text, image, text_on_the_right}: ImageTextProps) {
+export default function ImageText({ headline, text, image, text_on_the_right }: ImageTextProps) {
   return (
     <Container>
       <div
@@ -18,6 +19,7 @@ export default function ImageText({headline, text, image, text_on_the_right}: Im
           text_on_the_right ? "md:flex-row" : "md:flex-row-reverse"
         }`}
       >
+        {/* Image */}
         <div className="w-full md:w-2/6 h-auto rounded-3xl overflow-hidden">
           <Image
             src={image.permalink}
@@ -27,6 +29,7 @@ export default function ImageText({headline, text, image, text_on_the_right}: Im
             className="w-full h-[500px] object-cover"
           />
         </div>
+        {/* Text */}
         <div className="w-full md:w-3/6">
           { headline && (
             <h3 className="text-2xl font-heading mb-4">{headline}</h3>

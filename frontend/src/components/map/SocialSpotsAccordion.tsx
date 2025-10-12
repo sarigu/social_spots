@@ -1,15 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { SocialSpot, SpotTypeValue, getNeighborhoodFromPostalCode } from '@/lib/spots.repository';
+import { SocialSpot as TSocialSpot, SpotTypeValue as TSpotTypeValue } from '@/types';
+import { getNeighborhoodFromPostalCode } from '@/lib/spots.repository';
 import Link from "next/link";
 import Image from "next/image";
 
 interface SocialSpotsAccordionProps {
-  spots: SocialSpot[];
+  spots: TSocialSpot[];
 }
 
-const typeConfig: Record<SpotTypeValue, { color: string; emoji: string }> = {
+const typeConfig: Record<TSpotTypeValue, { color: string; emoji: string }> = {
   food: { color: 'bg-yellow-300', emoji: '🍜' },
   sports: { color: 'bg-blue-400', emoji: '⚽' },
   gardening: { color: 'bg-green-200', emoji: '🌱' },
@@ -54,7 +55,7 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
                         {types.map((type, index) => {
                             const value = typeof type === 'object' ? type.value : type;
                             const label = typeof type === 'object' ? type.label : type;
-                            const config = typeConfig[value as SpotTypeValue];
+                            const config = typeConfig[value as TSpotTypeValue];
                             
                             if (!config) return null;
                             
@@ -162,30 +163,30 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
                         {spot.website && (
                             <Link href={spot.website} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
                                 <Image 
-                                    src="/icons/website.svg" 
-                                    alt="Website" 
-                                    width={20} 
-                                    height={20} 
+                                  src="/icons/website.svg" 
+                                  alt="Website" 
+                                  width={20} 
+                                  height={20} 
                                 />
                             </Link>
                         )}
                         {spot.instagram && (
                             <Link href={spot.instagram} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
                                 <Image 
-                                    src="/icons/instagram.svg" 
-                                    alt="Instagram" 
-                                    width={20} 
-                                    height={20} 
+                                  src="/icons/instagram.svg" 
+                                  alt="Instagram" 
+                                  width={20} 
+                                  height={20} 
                                 />
                             </Link>
                         )}
                         {spot.facebook && (
                             <Link href={spot.facebook} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
                                 <Image 
-                                    src="/icons/facebook.svg" 
-                                    alt="Facebook" 
-                                    width={20} 
-                                    height={20} 
+                                  src="/icons/facebook.svg" 
+                                  alt="Facebook" 
+                                  width={20} 
+                                  height={20} 
                                 />
                             </Link>
                         )}

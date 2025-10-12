@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { SocialSpot as TSocialSpot, SpotTypeValue as TSpotTypeValue } from '@/types';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { SocialSpot, SpotTypeValue } from '@/lib/spots.repository';
 
 interface SpotsMapProps {
-  spots: SocialSpot[];
+  spots: TSocialSpot[];
 }
 
-const typeConfig: Record<SpotTypeValue, { color: string; emoji: string }> = {
+const typeConfig: Record<TSpotTypeValue, { color: string; emoji: string }> = {
   food: { color: '#fce300', emoji: '🍜' },
   sports: { color: '#42a5f5', emoji: '⚽' },
   gardening: { color: '#a5d6a7', emoji: '🌱' },
@@ -20,9 +20,9 @@ const typeConfig: Record<SpotTypeValue, { color: string; emoji: string }> = {
   creativity: { color: '#f6ad55', emoji: '🎨' },
 };
 
-const createCustomIcon = (spot: SocialSpot) => {
+const createCustomIcon = (spot: TSpotTypeValue) => {
   const primaryType = spot.type[0]?.value;
-  const config = typeConfig[primaryType as SpotTypeValue];
+  const config = typeConfig[primaryType as TSpotTypeValue];
   
   return L.divIcon({
     html: `<div style="background-color: ${config?.color || '#94a3b8'}; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${config?.emoji || '📍'}</div>`,

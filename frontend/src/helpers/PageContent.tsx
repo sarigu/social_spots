@@ -6,9 +6,8 @@ import InteractiveMap from "@/components/blocks/InteractiveMap";
 import Embed from "@/components/blocks/Embed";
 
 interface PageContentProps {
-  blocks: any[]
+  blocks: any;
 }
-
 
 export default function PageContent({ blocks }: PageContentProps) {
   return (

@@ -1,38 +1,8 @@
-export type SpotTypeValue = 'food' | 'sports' | 'gardening' | 'volunteering' | 'culture_house' | 'games' | 'creativity';
-
-export interface SpotType {
-  key: string;
-  value: SpotTypeValue;
-  label: string;
-}
-
-export interface LanguageType {
-  key: string;
-  value: string;
-  label: string;
-}
-
-export interface SocialSpot {
-  id: string;
-  title: string;
-  type: SpotType[];
-  description?: string;
-  time_details?: string; 
-  cost?: string;
-  language?: LanguageType[]; 
-  website?: string;
-  instagram?: string;
-  facebook?: string;
-  street?: string;
-  street_number?: number; 
-  postal_code?: number; 
-  latitude?: number;
-  longitude?: number;
-}
+import { SocialSpot as TSocialSpot } from '@/types';
 
 const STATAMIC_SPOTS_URL = `${process.env.API_URL}/collections/social_spots/entries`;
 
-export async function getAllSocialSpots(): Promise<SocialSpot[]> {
+export async function getAllSocialSpots(): Promise<TSocialSpot[]> {
   const response = await fetch(STATAMIC_SPOTS_URL, {
     next: { revalidate: 60 }
   });

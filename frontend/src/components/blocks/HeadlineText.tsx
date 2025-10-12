@@ -6,7 +6,7 @@ interface HeadlineTextProps {
   text_on_the_right?: boolean;
 }
 
-export default function HeadlineText({headline, text, text_on_the_right}: HeadlineTextProps) {
+export default function HeadlineText({ headline, text, text_on_the_right }: HeadlineTextProps) {
   return (
     <Container>
       <div
@@ -14,9 +14,11 @@ export default function HeadlineText({headline, text, text_on_the_right}: Headli
           text_on_the_right ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
+        {/* Headline */}
         <div className="w-full md:w-1/2">
           <h3 className="text-2xl font-heading mb-4">{headline}</h3>
         </div>
+        {/* Text */}
         <div className="w-full md:w-1/2">
           <p className="text-lg leading-relaxed">{text}</p>
         </div>

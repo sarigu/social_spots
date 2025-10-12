@@ -1,17 +1,20 @@
 import Container from "@/components/base/Container";
 import Image from "next/image";
 import Link from "next/link";
+import {FooterLinks as TFooterLinks} from "@/types";
+import {GeneralSettings as TGeneralSettings} from "@/types";
 
 interface FooterProps {
-  footerLinks: any;
-  generalSettings: any;
+  footerLinks: TFooterLinks[];
+  generalSettings: TGeneralSettings;
 }
 
-export default function Footer({footerLinks, generalSettings}: FooterProps) {
+export default function Footer({ footerLinks, generalSettings }: FooterProps) {
     return (
         <Container>
             <footer className="space-y-12 border-t border-foreground py-8">
                 <div className="flex flex-col md:flex-row gap-10">
+                    {/* Links to Pages */}
                     <div className="w-full md:w-1/2 flex flex-col gap-4">
                         {footerLinks.map((link) => (
                             <Link
@@ -24,6 +27,7 @@ export default function Footer({footerLinks, generalSettings}: FooterProps) {
                         ))}
                     </div>
                     <div className="w-full md:w-1/2">
+                        {/* Social Media Links */}
                         {generalSettings.instagram && (
                             <div className="space-y-4">
                                 <p className="font-bold">Socials</p>
@@ -39,12 +43,13 @@ export default function Footer({footerLinks, generalSettings}: FooterProps) {
                         )}
                     </div>
                 </div>
+                {/* Logo */}
                 {generalSettings.logo && (
                     <Link href="/" className="block">
                         <Image
                             src={generalSettings.logo.permalink}
                             alt="Social Spots Logo"
-                            width={300}
+                            width={250}
                             height={100}
                             className="w-full max-w-[300px] object-cover"
                         />
