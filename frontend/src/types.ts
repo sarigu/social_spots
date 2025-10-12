@@ -146,15 +146,16 @@ export interface SocialSpot {
   title: string;
   type: SpotType[];
   description?: string;
-  time_details?: string; 
+  time_details?: string;
   cost?: string;
-  language?: LanguageType[]; 
+  language?: LanguageType[];
   website?: string;
   instagram?: string;
   facebook?: string;
   street?: string;
-  street_number?: number; 
-  postal_code?: number; 
+  street_number?: number;
+  postal_code?: number;
   latitude?: number;
   longitude?: number;
+  neighborhood?: string; 
 }

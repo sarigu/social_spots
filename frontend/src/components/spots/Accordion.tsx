@@ -6,7 +6,7 @@ import { getNeighborhoodFromPostalCode } from '@/lib/spots.repository';
 import Link from "next/link";
 import Image from "next/image";
 
-interface SocialSpotsAccordionProps {
+interface AccordionProps {
   spots: TSocialSpot[];
 }
 
@@ -20,7 +20,7 @@ const typeConfig: Record<TSpotTypeValue, { color: string; emoji: string }> = {
   creativity: { color: 'bg-orange-400', emoji: '🎨' },
 };
 
-export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProps) {
+export default function Accordion({ spots }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
@@ -48,7 +48,7 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
             {/* Accordion Header */}
             <button
               onClick={() => toggleAccordion(index)}
-              className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+              className="w-full px-6 py-4 flex items-center justify-between hover:bg-muted transition-colors"
             >
                 <div className="grid grid-cols-[auto_1fr] gap-10 items-center">
                     <div className="flex gap-1 w-24">
@@ -100,11 +100,11 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
 
             {/* Accordion Content */}
             {isOpen && (
-              <div className="px-6 py-8 bg-gray-50 border-t border-gray-200">
+              <div className="px-6 py-8 bg-muted border-t border-gray-200">
                 <dl className="space-y-6">
                   {spot.description && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">
+                      <dt className="text-sm font-bold mb-1">
                         Description
                       </dt>
                       <dd className="text-sm text-gray-900">{spot.description}</dd>
@@ -113,21 +113,21 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
 
                   {spot.time_details && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">When</dt>
+                      <dt className="text-sm font-bold mb-1">When</dt>
                       <dd className="text-sm text-gray-900">{spot.time_details}</dd>
                     </div>
                   )}
 
                   {spot.cost && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">Cost</dt>
+                      <dt className="text-sm font-bold mb-1">Cost</dt>
                       <dd className="text-sm text-gray-900">{spot.cost}</dd>
                     </div>
                   )}
 
                   {spot.language && spot.language.length > 0 && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">
+                      <dt className="text-sm font-bold mb-1">
                         Language
                       </dt>
                       <dd className="text-sm text-gray-900">
@@ -139,7 +139,7 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
                   {/* Address */}
                   {(spot.street || spot.street_number || spot.postal_code) && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">
+                      <dt className="text-sm font-bold mb-1">
                         Location
                       </dt>
                       <dd className="text-sm text-gray-900">
@@ -158,7 +158,7 @@ export default function SocialSpotsAccordion({ spots }: SocialSpotsAccordionProp
                   {/* Links */}
                   {(spot.website || spot.instagram || spot.facebook) && (
                     <div>
-                      <dt className="text-sm font-bold text-gray-700 mb-1">Links</dt>
+                      <dt className="text-sm font-bold mb-1">Links</dt>
                       <dd className="flex flex-row gap-3 mt-2">
                         {spot.website && (
                             <Link href={spot.website} target="_blank" rel="noopener noreferrer" className="cursor-pointer">

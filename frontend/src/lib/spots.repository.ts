@@ -2,15 +2,20 @@ import { SocialSpot as TSocialSpot } from '@/types';
 
 const STATAMIC_SPOTS_URL = `${process.env.API_URL}/collections/social_spots/entries`;
 
-export async function getAllSocialSpots(): Promise<TSocialSpot[]> {
+export async function getAllSocialSpots(): Promise<SocialSpot[]> {
   const response = await fetch(STATAMIC_SPOTS_URL, {
     next: { revalidate: 60 }
   });
   const data = await response.json();
-  return data.data;
+  
+  // Add neighborhood based on postal code
+  return data.data.map((spot: TSocialSpot) => ({
+    ...spot,
+    neighborhood: getNeighborhoodFromPostalCode(spot.postal_code)
+  }));
 }
 
-export function getNeighborhoodFromPostalCode(postalCode?: string): string {
+export function getNeighborhoodFromPostalCode(postalCode?: number) {
   if (!postalCode) return 'Varies by event';
   
   const code = parseInt(postalCode);
@@ -30,5 +35,5 @@ export function getNeighborhoodFromPostalCode(postalCode?: string): string {
   if (code >= 2800 && code <= 2899) return 'Kongens Lyngby';
   if (code >= 2900 && code <= 2999) return 'Hellerup';
 
-  return 'Copenhagen'; 
+  return 'Varies by event'; 
 }

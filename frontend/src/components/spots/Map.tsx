@@ -6,7 +6,7 @@ import { SocialSpot as TSocialSpot, SpotTypeValue as TSpotTypeValue } from '@/ty
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-interface SpotsMapProps {
+interface MapProps {
   spots: TSocialSpot[];
 }
 
@@ -32,7 +32,7 @@ const createCustomIcon = (spot: TSpotTypeValue) => {
   });
 };
 
-export default function SpotsMap({ spots }: SpotsMapProps) {
+export default function Map({ spots }: MapProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -57,46 +57,45 @@ export default function SpotsMap({ spots }: SpotsMapProps) {
   return (
     <div className="relative w-full h-[500px] rounded-3xl overflow-hidden mb-8">
         <MapContainer
-            center={centerPosition}
-            zoom={12}
-            style={{ height: '100%', width: '100%' }}
-            scrollWheelZoom={false}
+          center={centerPosition}
+          zoom={12}
+          style={{ height: '100%', width: '100%' }}
+          scrollWheelZoom={false}
         >
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
             {spotsWithLocation.map((spot) => {
-                return (
-                  <Marker
-                      key={spot.id}
-                      position={[spot.latitude, spot.longitude]}
-                      icon={createCustomIcon(spot)}
-                  >
-                    <Popup>
-                      <div className="flex flex-col gap-2">
-                          <span className="text-lg font-semibold mb-1">{spot.title}</span>
-                          <div className="flex flex-row flex-wrap gap-1">
-                            {spot.type.map((type, index) => {
-                              return <span key={index} className="w-fit text-xs text-gray-600 bg-gray-200 rounded-2xl px-3 py-1">{type.label}</span>
-                            })}    
-                          </div>
-                          {spot.street && spot.street_number && (
-                            <p className="text-sm">
-                                📍 {spot.street} {spot.street_number}, {spot.postal_code} København
-                            </p>
-                          )}
-
-                          {spot.description && (
-                            <p className="text-sm">{spot.description}</p>
-                          )}
+              return (
+                <Marker
+                  key={spot.id}
+                  position={[spot.latitude, spot.longitude]}
+                  icon={createCustomIcon(spot)}
+                >
+                  <Popup>
+                    <div className="flex flex-col gap-2">
+                      <span className="text-lg font-semibold mb-1">{spot.title}</span>
+                      <div className="flex flex-row flex-wrap gap-1">
+                        {spot.type.map((type, index) => {
+                          return <span key={index} className="w-fit text-xs bg-muted rounded-2xl px-3 py-1">{type.label}</span>
+                        })}    
                       </div>
-                    </Popup>
-                  </Marker>
-                );
+                      {spot.street && spot.street_number && (
+                        <p className="text-sm">
+                          📍 {spot.street} {spot.street_number}, {spot.postal_code} København
+                        </p>
+                      )}
+
+                      {spot.description && (
+                        <p className="text-sm">{spot.description}</p>
+                      )}
+                    </div>
+                  </Popup>
+                </Marker>
+              );
             })}
         </MapContainer>
     </div>
-    );
+  );
 }
