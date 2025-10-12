@@ -1,14 +1,20 @@
 import { SocialSpot as TSocialSpot } from '@/types';
 
-const STATAMIC_SPOTS_URL = `${process.env.API_URL}/collections/social_spots/entries`;
+const SPOTS_API_URL = `${process.env.API_URL}/collections/social_spots/entries`;
 
-export async function getAllSocialSpots(): Promise<SocialSpot[]> {
-  const response = await fetch(STATAMIC_SPOTS_URL, {
-    next: { revalidate: 60 }
+export async function getAllSocialSpots(): Promise<TSocialSpot[]> {
+  const response = await fetch(SPOTS_API_URL, {
+    next: { 
+      revalidate: 3600 // Cache for 1 hour (3600 seconds)
+    }
   });
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch social spots');
+  }
+  
   const data = await response.json();
   
-  // Add neighborhood based on postal code
   return data.data.map((spot: TSocialSpot) => ({
     ...spot,
     neighborhood: getNeighborhoodFromPostalCode(spot.postal_code)

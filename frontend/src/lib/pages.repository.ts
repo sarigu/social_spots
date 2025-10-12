@@ -1,8 +1,10 @@
-const STATAMIC_API_URL = `${process.env.API_URL}/collections/pages/entries`;
+const PAGES_API_URL = `${process.env.API_URL}/collections/pages/entries`;
 
 export async function getAllPages() {
-  const response = await fetch(STATAMIC_API_URL, {
-    next: { revalidate: 60 }
+  const response = await fetch(PAGES_API_URL, {
+    next: { 
+      revalidate: 3600 // Cache for 1 hour (3600 seconds)
+    }
   });
   const data = await response.json();
   return data.data;
