@@ -2,14 +2,9 @@
 
 import Image from "next/image";
 import Container from "@/components/base/Container";
-import {Image as TImage} from "@/types";
+import {BlockHero as TBlockHero} from "@/types";
 
-interface HeroProps {
-  headline: string;
-  image: TImage;
-}
-
-export default function Hero({ headline, image }: HeroProps) {
+export default function Hero({ headline, image }: TBlockHero) {
   return (
     <Container>
       <div className="relative w-full h-auto rounded-3xl overflow-hidden">

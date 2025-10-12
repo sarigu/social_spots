@@ -2,16 +2,9 @@
 
 import Container from "@/components/base/Container";
 import Image from "next/image";
-import {Image as TImage} from "@/types";
+import {BlockImageText as TBlockImageText} from "@/types";
 
-interface ImageTextProps {
-  headline?: string;
-  text: string;
-  image: TImage;
-  text_on_the_right?: boolean;
-}
-
-export default function ImageText({ headline, text, image, text_on_the_right }: ImageTextProps) {
+export default function ImageText({ headline, text, image, text_on_the_right }: TBlockImageText) {
   return (
     <Container>
       <div

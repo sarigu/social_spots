@@ -4,33 +4,34 @@ import HeadlineText from "@/components/blocks/HeadlineText";
 import ImageText from "@/components/blocks/ImageText";
 import InteractiveMap from "@/components/blocks/InteractiveMap";
 import Embed from "@/components/blocks/Embed";
+import {Block as TBlock}  from "@/types";
 
 interface PageContentProps {
-  blocks: any;
+  blocks: TBlock[];
 }
 
 export default function PageContent({ blocks }: PageContentProps) {
   return (
     <div className="space-y-8">
-      {blocks.map((block: any) => {
+      {blocks.map((block: TBlock) => {
         switch (block.type) {
           case "hero":
             return <Hero key={block.id} headline={block.headline} image={block.image}/>;
 
           case "headline_and_text":
-            return <HeadlineText key={block.id} headline={block.headline} text={block.text} />;
+            return <HeadlineText key={block.id} headline={block.headline} text={block.text}/>;
 
           case "image_and_text":
-            return <ImageText key={block.id} headline={block.headline} text={block.text} image={block.image} text_on_the_right={block.text_on_the_right} />;
+            return <ImageText key={block.id} headline={block.headline} text={block.text} image={block.image} text_on_the_right={block.text_on_the_right}/>;
 
           case "embed":
-            return <Embed key={block.id} headline={block.headline} embed={block.embed} />;
+            return <Embed key={block.id} headline={block.headline} embed={block.embed}/>;
 
           case "highlight":
             return <Highlight key={block.id} text={block.text}/>;
 
           case "map":
-            return <InteractiveMap key={block.id} headline={block.headline} />;
+            return <InteractiveMap key={block.id} headline={block.headline}/>;
 
           default:
             return (

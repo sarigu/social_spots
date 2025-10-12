@@ -1,11 +1,7 @@
 import Container from "@/components/base/Container";
+import {BlockEmbed as TBlockEmbed} from "@/types";
 
-interface EmbedProps {
-  headline?: string;
-  embed: string;
-}
-
-export default function Embed({ headline, embed }: EmbedProps) {
+export default function Embed({ headline, embed }: TBlockEmbed) {
   return (
     <Container>
       {/* Headline */}

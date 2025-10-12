@@ -2,12 +2,9 @@ import Container from "@/components/base/Container";
 import SocialSpotsAccordion from "@/components/map/SocialSpotsAccordion";
 import SpotsMap from "@/components/map/SpotsMap";
 import { getAllSocialSpots } from "@/lib/spots.repository";
+import {BlockMap as TBlockMap} from "@/types";
 
-interface InteractiveMapProps {
-  headline?: string;
-}
-
-export default async function InteractiveMap({ headline }: InteractiveMapProps) {
+export default async function InteractiveMap({ headline }: TBlockMap) {
   const spots = await getAllSocialSpots();
 
   if(!spots || spots.length === 0) {

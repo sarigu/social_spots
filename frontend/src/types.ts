@@ -14,49 +14,100 @@ export interface GeneralSettings {
 }
 
 interface Blueprint{
-    handle: string;
-    title: string;
+  handle: string;
+  title: string;
 }
 
 interface Collection{
-    handle: string;
-    title: string;
+  handle: string;
+  title: string;
 }
 
 interface Author{
-    api_url: string;
-    email: string;
-    id: string;
-    name: string;
+  api_url: string;
+  email: string;
+  id: string;
+  name: string;
 }
 
+type BlockBase = {
+  id: string;
+  type: string;
+};
+
+export type BlockHero = BlockBase & {
+  type: 'hero';
+  headline: string;
+  image: Image;
+};
+
+export type BlockHeadlineText = BlockBase & {
+  type: 'headline_and_text';
+  headline: string;
+  text: string;
+  text_on_the_right?: boolean;
+};
+
+export type BlockImageText = BlockBase & {
+  type: 'image_and_text';
+  headline?: string;
+  text: string;
+  image: Image;
+  text_on_the_right?: boolean;
+};
+
+export type BlockHighlight = BlockBase & {
+  type: 'highlight';
+  text: string;
+};
+
+export type BlockMap = BlockBase & {
+  type: 'map';
+  headline?: string;
+};
+
+export type BlockEmbed = BlockBase & {
+  type: 'map';
+  headline?: string;
+  embed: string;
+};
+
+
+export type Block =
+  BlockHero |
+  BlockHeadlineText |
+  BlockImageText |
+  BlockHighlight |
+  BlockMap |
+  BlockEmbed;
+
 export interface Page{
-    api_url: string;
-    author: string;
-    blueprint: Blueprint;
-    collection: Collection;
-    date?: string;
-    description?: string;
-    edit_url: string;
-    entry_id?: string;
-    id: string;
-    is_entry: boolean;
-    last_modified: string;
-    locale: string;
-    mount: any;
-    order: number
-    origin_id: string
-    page_builder: any[];
-    permalink: string;
-    private: boolean;
-    published: boolean;
-    slug: string;
-    status: string;
-    title: string;
-    updated_at: string;
-    uri: string;
-    url: string;
-    updated_by: Author;
+  api_url: string;
+  author: string;
+  blueprint: Blueprint;
+  collection: Collection;
+  date?: string;
+  description?: string;
+  edit_url: string;
+  entry_id?: string;
+  id: string;
+  is_entry: boolean;
+  last_modified: string;
+  locale: string;
+  mount: any;
+  order: number
+  origin_id: string
+  page_builder: any[];
+  permalink: string;
+  private: boolean;
+  published: boolean;
+  slug: string;
+  status: string;
+  title: string;
+  updated_at: string;
+  uri: string;
+  url: string;
+  updated_by: Author;
 }
 
 export interface NavLinks {

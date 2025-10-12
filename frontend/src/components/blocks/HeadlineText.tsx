@@ -1,12 +1,7 @@
 import Container from "@/components/base/Container";
+import {BlockHeadlineText as TBlockHeadlineText} from "@/types";
 
-interface HeadlineTextProps {
-  headline: string;
-  text: string;
-  text_on_the_right?: boolean;
-}
-
-export default function HeadlineText({ headline, text, text_on_the_right }: HeadlineTextProps) {
+export default function HeadlineText({ headline, text, text_on_the_right }: TBlockHeadlineText) {
   return (
     <Container>
       <div
