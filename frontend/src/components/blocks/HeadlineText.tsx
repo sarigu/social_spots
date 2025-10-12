@@ -3,7 +3,7 @@ import {BlockHeadlineText as TBlockHeadlineText} from "@/types";
 
 export default function HeadlineText({ headline, text, text_on_the_right }: TBlockHeadlineText) {
   return (
-    <Container>
+    <Container spacing="large">
       <div
         className={`flex flex-col gap-4 ${
           text_on_the_right ? "md:flex-row-reverse" : "md:flex-row"

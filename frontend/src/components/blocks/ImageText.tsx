@@ -6,14 +6,14 @@ import {BlockImageText as TBlockImageText} from "@/types";
 
 export default function ImageText({ headline, text, image, text_on_the_right }: TBlockImageText) {
   return (
-    <Container>
+    <Container spacing="large">
       <div
-        className={`flex flex-col gap-4 justify-between items-center ${
+        className={`flex flex-col gap-10 md:gap-24 justify-between items-center ${
           text_on_the_right ? "md:flex-row" : "md:flex-row-reverse"
         }`}
       >
         {/* Image */}
-        <div className="w-full md:w-2/6 h-auto rounded-3xl overflow-hidden">
+        <div className="w-full md:w-2/4 h-auto rounded-3xl overflow-hidden">
           <Image
             src={image.permalink}
             alt={headline}
@@ -23,7 +23,7 @@ export default function ImageText({ headline, text, image, text_on_the_right }: 
           />
         </div>
         {/* Text */}
-        <div className="w-full md:w-3/6">
+        <div className="w-full md:w-2/4">
           { headline && (
             <h3 className="text-2xl font-heading mb-4">{headline}</h3>
           )}

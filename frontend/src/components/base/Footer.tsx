@@ -11,7 +11,7 @@ interface FooterProps {
 
 export default function Footer({ footerLinks, generalSettings }: FooterProps) {
     return (
-        <Container>
+        <Container maxWidth="large">
             <footer className="space-y-12 border-t border-foreground py-8">
                 <div className="flex flex-col md:flex-row gap-10">
                     {/* Links to Pages */}

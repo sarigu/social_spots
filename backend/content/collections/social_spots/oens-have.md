@@ -3,9 +3,7 @@ id: a1cc9a04-2f52-4f09-aa68-ddb079dcac4a
 blueprint: social_spot
 title: 'Øens Have'
 type:
-  - food
   - gardening
-  - volunteering
 street: Refshalevej
 street_number: 159
 postal_code: 1432
@@ -21,7 +19,7 @@ language:
   - english
 website: 'https://www.oenshave.dk/volunteer'
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1760225026
+updated_at: 1760267643
 latitude: 55.7023
 longitude: 12.605
 ---

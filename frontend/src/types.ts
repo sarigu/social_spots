@@ -61,8 +61,8 @@ export type BlockHighlight = BlockBase & {
   text: string;
 };
 
-export type BlockMap = BlockBase & {
-  type: 'map';
+export type BlockInteractiveSpots = BlockBase & {
+  type: 'interactive_spots';
   headline?: string;
 };
 
@@ -73,7 +73,7 @@ interface CodeSnippet{
 }
 
 export type BlockEmbed = BlockBase & {
-  type: 'map';
+  type: 'embed';
   headline?: string;
   code_snippet: CodeSnippet;
 };
@@ -83,7 +83,7 @@ export type Block =
   BlockHeadlineText |
   BlockImageText |
   BlockHighlight |
-  BlockMap |
+  BlockInteractiveSpots |
   BlockEmbed;
 
 export interface Page{

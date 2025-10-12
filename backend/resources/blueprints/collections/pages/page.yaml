@@ -130,9 +130,9 @@ tabs:
                             display: Headline
                             validate:
                               - required
-                    map:
-                      display: 'Interactive Map'
-                      instructions: 'This will display a map of spots and a list'
+                    interactive_spots:
+                      display: 'Interactive Spots'
+                      instructions: 'This will display a map of social spots and a list'
                       fields:
                         -
                           handle: headline

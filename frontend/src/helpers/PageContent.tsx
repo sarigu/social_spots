@@ -2,7 +2,7 @@ import Hero from "@/components/blocks/Hero";
 import Highlight from "@/components/blocks/Highlight";
 import HeadlineText from "@/components/blocks/HeadlineText";
 import ImageText from "@/components/blocks/ImageText";
-import InteractiveMap from "@/components/blocks/InteractiveMap";
+import InteractiveSpots from "@/components/blocks/InteractiveSpots";
 import Embed from "@/components/blocks/Embed";
 import {Block as TBlock}  from "@/types";
 
@@ -25,13 +25,13 @@ export default function PageContent({ blocks }: PageContentProps) {
             return <ImageText key={block.id} headline={block.headline} text={block.text} image={block.image} text_on_the_right={block.text_on_the_right}/>;
 
           case "embed":
-            return <Embed key={block.id} props={block.headline} code_snippet={block.code_snippet}/>;
+            return <Embed key={block.id} headline={block.headline} code_snippet={block.code_snippet}/>;
 
           case "highlight":
             return <Highlight key={block.id} text={block.text}/>;
 
-          case "map":
-            return <InteractiveMap key={block.id} headline={block.headline}/>;
+          case "interactive_spots":
+            return <InteractiveSpots key={block.id} headline={block.headline}/>;
 
           default:
             return (

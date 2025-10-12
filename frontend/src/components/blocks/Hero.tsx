@@ -6,7 +6,7 @@ import {BlockHero as TBlockHero} from "@/types";
 
 export default function Hero({ headline, image }: TBlockHero) {
   return (
-    <Container>
+    <Container maxWidth="large">
       <div className="relative w-full h-auto rounded-3xl overflow-hidden">
         {/* Background Image */}
         <Image
@@ -22,7 +22,7 @@ export default function Hero({ headline, image }: TBlockHero) {
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.2)] to-transparent" />
 
         {/* Headline */}
-        <div className="absolute bottom-8 left-8 text-white">
+        <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
           <h1 className="max-w-2xl">{headline}</h1>
         </div>
       </div>
