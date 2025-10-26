@@ -4,11 +4,15 @@ import { useState, useMemo } from 'react';
 import Accordion from '@/components/spots/Accordion';
 import Map from '@/components/spots/Map';
 import Filter, { FilterState } from '@/components/spots/filter/Filter';
+import dynamic from 'next/dynamic';
 import { SocialSpot as TSocialSpot } from '@/types';
 
 interface FilteredSpotsWrapperProps {
   spots: TSocialSpot[];
 }
+
+// Dynamic import for client-only rendering
+const Map = dynamic(() => import('@/components/spots/Map'), { ssr: false });
 
 export default function FilteredSpotsWrapper({ spots }: FilteredSpotsWrapperProps) {
   const [filters, setFilters] = useState<FilterState>({
