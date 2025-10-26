@@ -88,7 +88,7 @@ export default function Map({ spots }: MapProps) {
                       )}
 
                       {spot.description && (
-                        <p className="text-sm">{spot.description}</p>
+                        <p className="text-sm max-h-32 overflow-y-auto pr-2">{spot.description}</p>
                       )}
                     </div>
                   </Popup>
