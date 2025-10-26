@@ -8,8 +8,8 @@ import CheckboxItem from '@/components/spots/filter/CheckboxItem';
 import FilterTag from '@/components/spots/filter/FilterTag';
 
 interface SpotsFilterProps {
-  onFilterChange: (filters: FilterState) => void;
   spots: TSocialSpot[];
+  onFilterChange: (filters: FilterState) => void;
 }
 
 interface FilterState {
@@ -40,6 +40,11 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
   });
   const [openDropdown, setOpenDropdown] = useState<DropdownType>(null);
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // Notify parent whenever filters change
+  useEffect(() => {
+    onFilterChange(filters);
+  }, [filters, onFilterChange]);
 
   // Extract unique values from spots
   const uniqueLanguages = Array.from(
@@ -78,30 +83,26 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
       const newFilters = categoryFilters.includes(value)
         ? categoryFilters.filter(v => v !== value)
         : [...categoryFilters, value];
-      
-      const updated = {
+
+      return {
         ...prev,
         [category]: newFilters,
       };
-      
-      onFilterChange(updated);
-      return updated;
     });
   };
 
   const clearFilters = () => {
-    const cleared = {
+    const cleared: FilterState = {
       types: [],
       languages: [],
       costs: [],
       neighborhoods: [],
     };
     setFilters(cleared);
-    onFilterChange(cleared);
     setOpenDropdown(null);
   };
 
-  const hasActiveFilters = 
+  const hasActiveFilters =
     filters.types.length > 0 ||
     filters.languages.length > 0 ||
     filters.costs.length > 0 ||
@@ -115,14 +116,13 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
     <div className="mb-6">
       <div className="flex flex-wrap gap-3 items-center">
         {/* Types Dropdown */}
-        <div className="relative" ref={el => dropdownRefs.current.types = el}>
+        <div className="relative" ref={el => (dropdownRefs.current.types = el)}>
           <FilterDropdownButton
             label="Type"
             count={filters.types.length}
             isOpen={openDropdown === 'types'}
             onClick={() => toggleDropdown('types')}
           />
-          
           {openDropdown === 'types' && (
             <DropdownMenu width="w-64">
               {typeOptions.map(type => (
@@ -131,7 +131,9 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
                   checked={filters.types.includes(type.value)}
                   onChange={() => toggleFilter('types', type.value)}
                 >
-                  <span className={`w-6 h-6 ${type.color} rounded-full flex items-center justify-center text-sm`}>
+                  <span
+                    className={`w-6 h-6 ${type.color} rounded-full flex items-center justify-center text-sm`}
+                  >
                     {type.emoji}
                   </span>
                   <span className="text-sm">{type.label}</span>
@@ -142,14 +144,13 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
         </div>
 
         {/* Language Dropdown */}
-        <div className="relative" ref={el => dropdownRefs.current.languages = el}>
+        <div className="relative" ref={el => (dropdownRefs.current.languages = el)}>
           <FilterDropdownButton
             label="Language"
             count={filters.languages.length}
             isOpen={openDropdown === 'languages'}
             onClick={() => toggleDropdown('languages')}
           />
-          
           {openDropdown === 'languages' && (
             <DropdownMenu width="w-48">
               {uniqueLanguages.map(lang => (
@@ -166,14 +167,13 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
         </div>
 
         {/* Cost Dropdown */}
-        <div className="relative" ref={el => dropdownRefs.current.costs = el}>
+        <div className="relative" ref={el => (dropdownRefs.current.costs = el)}>
           <FilterDropdownButton
             label="Cost"
             count={filters.costs.length}
             isOpen={openDropdown === 'costs'}
             onClick={() => toggleDropdown('costs')}
           />
-          
           {openDropdown === 'costs' && (
             <DropdownMenu>
               {uniqueCosts.map(cost => (
@@ -190,14 +190,13 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
         </div>
 
         {/* Neighborhood Dropdown */}
-        <div className="relative" ref={el => dropdownRefs.current.neighborhoods = el}>
+        <div className="relative" ref={el => (dropdownRefs.current.neighborhoods = el)}>
           <FilterDropdownButton
             label="Neighborhood"
             count={filters.neighborhoods.length}
             isOpen={openDropdown === 'neighborhoods'}
             onClick={() => toggleDropdown('neighborhoods')}
           />
-          
           {openDropdown === 'neighborhoods' && (
             <DropdownMenu>
               {uniqueNeighborhoods.map(neighborhood => (
@@ -218,8 +217,8 @@ export default function SpotsFilter({ onFilterChange, spots }: SpotsFilterProps)
           onClick={clearFilters}
           disabled={!hasActiveFilters}
           className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
-            hasActiveFilters 
-              ? 'bg-accent hover:bg-accent/80' 
+            hasActiveFilters
+              ? 'bg-accent hover:bg-accent/80'
               : 'text-gray-400 bg-muted cursor-not-allowed'
           }`}
         >
