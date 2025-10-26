@@ -9,7 +9,7 @@ interface PageRendererProps {
 export default function PageRenderer({ page }: PageRendererProps) {
   return (
     <>
-       <Container spacing="none" className="pt-12 md:pt-20">
+       <Container spacing="none" className="px-8 md:px-16 pt-12 md:pt-20">
           <h2 className="text-center">{page.title}</h2>
           {page.description && (
             <p className="text-center">{page.description}</p>
