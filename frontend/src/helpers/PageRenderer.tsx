@@ -8,14 +8,14 @@ interface PageRendererProps {
 
 export default function PageRenderer({ page }: PageRendererProps) {
   return (
-    <div>
-       <Container spacing="large">
+    <>
+       <Container spacing="none" className="pt-12 md:pt-20">
           <h2 className="text-center">{page.title}</h2>
           {page.description && (
             <p className="text-center">{page.description}</p>
           )}
         </Container>
-        <PageContent blocks={page.page_builder} />
-    </div>
+        <PageContent blocks={page.page_builder}/>
+    </>
   );
 }
