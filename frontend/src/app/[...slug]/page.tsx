@@ -7,8 +7,9 @@ export async function generateStaticParams() {
   return generateSlugParams(pages);
 }
 
-export default async function Page({ params }) {
-  const page = await getPageBySlug(params.slug);
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+  const resolvedParams = await params;
+  const page = await getPageBySlug(resolvedParams.slug);
 
   if (!page) {
     notFound();
