@@ -12,8 +12,8 @@ page_builder:
     enabled: true
   -
     id: mgineh1v
-    headline: 'What is a social spot?'
-    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+    headline: 'Find your people, right where you live'
+    text: 'Social Spots helps you discover the cozy, creative, and welcoming corners of your city - from community dinners to board game nights. Because finding new connections shouldn’t be hard - it should be fun, local, and real.'
     text_on_the_right: true
     type: headline_and_text
     enabled: true
@@ -24,8 +24,10 @@ page_builder:
     enabled: true
   -
     id: mginf7qn
-    headline: 'Social spots'
-    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+    headline: 'What is a social spot?'
+    text: |-
+      A Social Spot is a place where people meet, talk, laugh, and do things together - without needing an invite. It could be a community garden, an open mic, a culture house, or a weekly running club.
+      Think of it as your shortcut to shared moments and new friendships.
     text_on_the_right: true
     type: headline_and_text
     enabled: true
@@ -35,7 +37,7 @@ page_builder:
     type: interactive_spots
     enabled: true
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1760267703
+updated_at: 1761513203
 ---
 ## Welcome to your brand new Statamic site!
 

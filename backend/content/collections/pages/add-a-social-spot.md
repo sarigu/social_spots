@@ -4,7 +4,7 @@ blueprint: page
 title: 'Add a social spot'
 author: 3373b19c-b44c-49b4-b77f-8ac350a3b782
 updated_by: 3373b19c-b44c-49b4-b77f-8ac350a3b782
-updated_at: 1761495666
+updated_at: 1761513097
 page_builder:
   -
     id: mgingd18
@@ -14,7 +14,10 @@ page_builder:
     text_on_the_right: true
     type: image_and_text
     enabled: true
-    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+    text: |-
+      Know a cozy community dinner, a friendly local club, or a secret garden full of people and good vibes?
+      Add it to Social Spots and help others find their way to new connections.
+      Every shared spot makes the city a little warmer. 💚
   -
     id: mgn06c7l
     headline: 'Let us know your favorite social spot'

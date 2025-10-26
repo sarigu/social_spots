@@ -5,7 +5,7 @@ export default function HeadlineText({ headline, text, text_on_the_right }: TBlo
   return (
     <Container spacing="large">
       <div
-        className={`flex flex-col gap-4 ${
+        className={`flex flex-col gap-10 md:gap-24 ${
           text_on_the_right ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >

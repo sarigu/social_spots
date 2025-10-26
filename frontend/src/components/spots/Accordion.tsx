@@ -57,7 +57,7 @@ export default function Accordion({ spots, itemsPerPage = 6 }: AccordionProps) {
             {/* Accordion Header */}
             <button
               onClick={() => toggleAccordion(index)}
-              className="w-full px-6 py-4 flex items-center justify-between hover:bg-muted transition-colors"
+              className="w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-muted transition-colors"
             >
               <div className="grid grid-cols-[auto_1fr] gap-10 items-center">
                 <div className="flex gap-1 w-24">
